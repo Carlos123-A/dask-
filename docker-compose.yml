@@ -1,12 +1,14 @@
 version: '3.8'
+
 services:
-  worker:
-    image: dask/dask:latest
-    container_name: dask_worker
-    environment:
-      - DASK_SCHEDULER_ADDRESS=<IP_DEL_SCHEDULER>:8786
+  dask-worker:
+    image: daskdev/dask:latest
+    container_name: dask-worker
+    command: dask-worker tcp://<IP_DEL_SERVIDOR_DEL_SCHEDULER>:8786
     networks:
       - dask-network
+    restart: always
+
 networks:
   dask-network:
     driver: bridge
