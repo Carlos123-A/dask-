@@ -4,7 +4,7 @@ services:
   dask-worker:
     image: daskdev/dask:latest
     container_name: dask-worker
-    command: dask-worker tcp://18.218.28.236:8786
+    command: dask-worker tcp://:8786
     networks:
       - dask-network
     volumes:
