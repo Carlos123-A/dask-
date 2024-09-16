@@ -7,8 +7,13 @@ services:
     command: dask-worker tcp://<IP_DEL_SERVIDOR_DEL_SCHEDULER>:8786
     networks:
       - dask-network
+    volumes:
+      - dask-data:/data
     restart: always
 
 networks:
   dask-network:
     driver: bridge
+
+volumes:
+  dask-data:
